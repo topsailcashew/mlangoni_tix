@@ -1,11 +1,30 @@
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { Event } from '../types';
 
+/**
+ * SECURITY WARNING:
+ * This implementation exposes the Gemini API key in the client-side bundle.
+ * For production use, you MUST:
+ * 1. Move API calls to a backend server
+ * 2. Implement proper authentication and authorization
+ * 3. Add rate limiting to prevent API abuse
+ * 4. Never expose API keys in client-side code
+ *
+ * Current implementation is for DEMO purposes only.
+ */
+
 let aiClient: GoogleGenAI | null = null;
 
 const getClient = (): GoogleGenAI => {
   if (!aiClient) {
-    aiClient = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const apiKey = process.env.API_KEY;
+
+    if (!apiKey) {
+      console.error('Gemini API key is not configured. Please set GEMINI_API_KEY in .env.local');
+      throw new Error('API key not configured');
+    }
+
+    aiClient = new GoogleGenAI({ apiKey });
   }
   return aiClient;
 };

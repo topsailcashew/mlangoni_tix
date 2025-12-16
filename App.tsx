@@ -216,7 +216,7 @@ function App() {
 
                {/* Footer Simple */}
                <footer className="border-t border-gray-200 dark:border-white/10 bg-white dark:bg-zinc-900 py-12 text-center transition-colors">
-                  <p className="text-gray-500 font-bold uppercase tracking-widest text-sm">© 2023 MlangoniTix. All rights reserved.</p>
+                  <p className="text-gray-500 font-bold uppercase tracking-widest text-sm">© 2025 MlangoniTix. All rights reserved.</p>
                </footer>
             </main>
           )}
